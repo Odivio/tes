@@ -1,0 +1,222 @@
+table Orders
+	lineageTag: e362d244-a761-4684-971e-3df726c07fc9
+
+	measure 'Profit total' = SUM(Orders[Profit])
+		formatString: #,0.00\ "€";-#,0.00\ "€";#,0.00\ "€"
+		lineageTag: 4d4ee6c0-eddf-46d0-bc86-1ed6701a55f6
+
+	measure 'total Sales' = SUM(Orders[Sales])
+		lineageTag: 2076058b-6b6e-4013-ba6a-82f8932a41c5
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Nb commandes' = DISTINCTCOUNT(Orders[Order ID])
+		formatString: 0
+		lineageTag: 08d84b5e-1080-4ad9-b6be-ef384e9d63cf
+
+	column 'Row ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4d06d9b9-d7e6-4446-85e7-8b1158724e22
+		summarizeBy: count
+		sourceColumn: Row ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order ID'
+		dataType: string
+		lineageTag: 3e5131a8-e4d7-4ef7-b955-834eccae74ea
+		summarizeBy: none
+		sourceColumn: Order ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: afa1fd7b-5337-422b-9191-226240f4f75a
+		summarizeBy: none
+		sourceColumn: Order Date
+
+		variation Variation
+			isDefault
+			relationship: 20361501-289d-4fd1-93fb-240c7941c11b
+			defaultHierarchy: LocalDateTable_dc8e7000-4991-4ad7-a1b6-e7cbe174d001.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Ship Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d8f64aab-5d0b-4ed1-83a2-ee37854aad0e
+		summarizeBy: none
+		sourceColumn: Ship Date
+
+		variation Variation
+			isDefault
+			relationship: 3aca87b4-22e0-4e7b-baac-2331393df340
+			defaultHierarchy: LocalDateTable_04813d6c-8c04-4c95-8d19-cb2e768b1665.'Hiérarchie de dates'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Ship Mode'
+		dataType: string
+		lineageTag: 9f1b7c8b-d32e-4095-8467-bc1bec397ebd
+		summarizeBy: none
+		sourceColumn: Ship Mode
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer ID'
+		dataType: string
+		lineageTag: 2019a916-8e70-48d2-8e99-1f6f94253ae1
+		summarizeBy: none
+		sourceColumn: Customer ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Customer Name'
+		dataType: string
+		lineageTag: 77e1215e-6e1f-444d-bfc4-0311f66c7f54
+		summarizeBy: none
+		sourceColumn: Customer Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Segment
+		dataType: string
+		lineageTag: 6e237ff4-e795-4964-a60b-6160ff09b6ae
+		summarizeBy: none
+		sourceColumn: Segment
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 8bcf3b09-111b-449d-984d-a85b691050d7
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: b4637050-da5c-4103-81fd-942511e87935
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: e9e2a96e-61ca-4678-bc84-2b99937d8ed8
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Postal Code'
+		dataType: int64
+		formatString: 0
+		lineageTag: b9fa4edd-ad45-4d97-b83c-1dec937389f4
+		summarizeBy: count
+		sourceColumn: Postal Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: b144733b-d368-49d5-b8fc-7c6a43ac6a78
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product ID'
+		dataType: string
+		lineageTag: 27ef144f-fd17-4270-b07b-9625f0d4a28a
+		summarizeBy: none
+		sourceColumn: Product ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: ff13880e-3b9a-403f-8f2c-232f084f8288
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sub-Category
+		dataType: string
+		lineageTag: 88273b35-bbe4-4477-bec3-6ef16ee93404
+		summarizeBy: none
+		sourceColumn: Sub-Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Product Name'
+		dataType: string
+		lineageTag: 241d77c8-7474-453a-a623-724e8444e502
+		summarizeBy: none
+		sourceColumn: Product Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sales
+		dataType: double
+		lineageTag: 0a99b004-6dd6-4474-b111-f43cf08501e8
+		summarizeBy: sum
+		sourceColumn: Sales
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 0c35b779-a01f-466f-8eb0-92ab06ea9353
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column Discount
+		dataType: double
+		lineageTag: e0cfc491-5278-40ca-bb39-0a4be384d60b
+		summarizeBy: sum
+		sourceColumn: Discount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Profit
+		dataType: double
+		lineageTag: fe7d3a72-370d-4593-a224-5096ca71a3c3
+		summarizeBy: sum
+		sourceColumn: Profit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Orders = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\elise\Downloads\sample_-_superstore.xls"), null, true),
+				    Orders1 = Source{[Name="Orders"]}[Data],
+				    #"En-têtes promus" = Table.PromoteHeaders(Orders1, [PromoteAllScalars=true]),
+				    #"Type modifié" = Table.TransformColumnTypes(#"En-têtes promus",{{"Row ID", Int64.Type}, {"Order ID", type text}, {"Order Date", type date}, {"Ship Date", type date}, {"Ship Mode", type text}, {"Customer ID", type text}, {"Customer Name", type text}, {"Segment", type text}, {"Country", type text}, {"City", type text}, {"State", type text}, {"Postal Code", Int64.Type}, {"Region", type text}, {"Product ID", type text}, {"Category", type text}, {"Sub-Category", type text}, {"Product Name", type text}, {"Sales", type number}, {"Quantity", Int64.Type}, {"Discount", type number}, {"Profit", type number}})
+				in
+				    #"Type modifié"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,168 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.4.0/schema.json",
+  "name": "e977af0b11582677ee37",
+  "position": {
+    "x": 24.69991122129349,
+    "y": 528.30365667766637,
+    "z": 7,
+    "height": 185.24933415970119,
+    "width": 487.13713797551048,
+    "tabOrder": 7
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Orders"
+                    }
+                  },
+                  "Property": "Category"
+                }
+              },
+              "queryRef": "Orders.Category",
+              "nativeQueryRef": "Category"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Orders"
+                    }
+                  },
+                  "Property": "Sub-Category"
+                }
+              },
+              "queryRef": "Orders.Sub-Category",
+              "nativeQueryRef": "Sub-Category"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Orders"
+                    }
+                  },
+                  "Property": "Nb commandes"
+                }
+              },
+              "queryRef": "Orders.Nb commandes",
+              "nativeQueryRef": "Nb commandes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Orders"
+                    }
+                  },
+                  "Property": "total Sales"
+                }
+              },
+              "queryRef": "Orders.total Sales",
+              "nativeQueryRef": "total Sales"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Orders"
+                    }
+                  },
+                  "Property": "Profit total"
+                }
+              },
+              "queryRef": "Orders.Profit total",
+              "nativeQueryRef": "Profit total"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "8a52bc5538d3cc071a9e",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Orders"
+              }
+            },
+            "Property": "Category"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9278a2fec066ec43c950",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Orders"
+              }
+            },
+            "Property": "Sub-Category"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "574e327c0abed6695a22",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Orders"
+              }
+            },
+            "Property": "Nb commandes"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "edf0f9a68916e47b012c",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Orders"
+              }
+            },
+            "Property": "total Sales"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "c304d6c78566a89d76bc",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "Orders"
+              }
+            },
+            "Property": "Profit total"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+table People
+	lineageTag: 2f14d35b-d8b3-49a0-86c6-8e6d9afc2baa
+
+	column Person
+		dataType: string
+		lineageTag: 5603f6b6-5505-4a9a-a67e-cacd419fc056
+		summarizeBy: none
+		sourceColumn: Person
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: e99bade0-11b7-4e4e-93eb-ce39109f5e2b
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition People = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\elise\Downloads\sample_-_superstore.xls"), null, true),
+				    People1 = Source{[Name="People"]}[Data],
+				    #"Type modifié" = Table.TransformColumnTypes(People1,{{"Column1", type text}, {"Column2", type text}}),
+				    #"En-têtes promus" = Table.PromoteHeaders(#"Type modifié", [PromoteAllScalars=true]),
+				    #"Type modifié1" = Table.TransformColumnTypes(#"En-têtes promus",{{"Person", type text}, {"Region", type text}})
+				in
+				    #"Type modifié1"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

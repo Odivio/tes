@@ -1,0 +1,37 @@
+table Returns
+	lineageTag: c9e0aba3-0b7e-4a06-baac-2d7082e0ce7b
+
+	column Returned
+		dataType: string
+		lineageTag: 948f8978-366f-4e64-8edc-6a2547369b51
+		summarizeBy: none
+		sourceColumn: Returned
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order ID'
+		dataType: string
+		lineageTag: e1e619bd-e85d-4e00-b176-ad9bc954b23f
+		summarizeBy: none
+		sourceColumn: Order ID
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Returns = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\elise\Downloads\sample_-_superstore.xls"), null, true),
+				    Returns1 = Source{[Name="Returns"]}[Data],
+				    #"Type modifié" = Table.TransformColumnTypes(Returns1,{{"Column1", type text}, {"Column2", type text}}),
+				    #"En-têtes promus" = Table.PromoteHeaders(#"Type modifié", [PromoteAllScalars=true]),
+				    #"Type modifié1" = Table.TransformColumnTypes(#"En-têtes promus",{{"Returned", type text}, {"Order ID", type text}}),
+				    #"Doublons supprimés" = Table.Distinct(#"Type modifié1"),
+				    #"Erreurs supprimées" = Table.RemoveRowsWithErrors(#"Doublons supprimés")
+				in
+				    #"Erreurs supprimées"
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+
