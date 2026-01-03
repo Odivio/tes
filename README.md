@@ -1,6 +1,6 @@
 # Projet Power BI – Analyse des commandes (Superstore)
 
-Mini-projet réalisé dans le cadre de ma formation en data analysis et management de l’innovation. L’objectif est d’analyser les performances des ventes et des commandes d’un jeu de données type “Superstore”.
+Mini-projet personnel réalisé dans le cadre de ma formation en Data Science & Management de l’Innovation. L’objectif est d’analyser les performances des ventes et des commandes d’un jeu de données type “Superstore”.
 
 ## Objectifs
 
@@ -15,8 +15,8 @@ Mini-projet réalisé dans le cadre de ma formation en data analysis et manageme
 - **Date** : table de dates générée en DAX (`CALENDARAUTO`) et marquée comme table de dates, reliée à `Orders[Order Date]`.
 
 Relations principales :
-- `Date[Date]` → `Orders[Order Date]` (1:*).  
-- `People[Person]` → `Orders[Person]` (1:*), si disponible dans le modèle.
+- `Date[Date]` → `Orders[Order Date]`.  
+- `People[Person]` → `Orders[Person]`.
 
 ## Mesures DAX clés
 
